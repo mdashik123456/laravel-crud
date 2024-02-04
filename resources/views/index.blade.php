@@ -20,7 +20,7 @@
 <body>
 
     <nav class="navbar navbar-dark bg-dark justify-content-center">
-        <h3 class="text-light my-3">CRUD (Create, Read, Update, Delete) using PHP</h3>
+        <h3 class="text-light my-3">CRUD (Create, Read, Update, Delete) using Laravel</h3>
     </nav>
 
 
