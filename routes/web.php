@@ -14,9 +14,11 @@ use App\Http\Controllers\SiteController;
 |
 */
 
-Route::get('/', [SiteController::class, 'index'])->name('index');
-Route::get('/update', [SiteController::class, 'update'])->name('update');
+Route::get('/', [SiteController::class, 'index']);
+Route::get('/updatePage/{id}', [SiteController::class, 'updatePage']);
+Route::get('/delete/{id}', [SiteController::class, 'delete']);
 
 
-Route::post('/', [SiteController::class, 'insert'])->name('insert');
+Route::post('/update/{id}', [SiteController::class, 'update']);
+Route::post('/', [SiteController::class, 'insert']);
 

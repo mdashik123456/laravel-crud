@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PHP CRUD Project</title>
+    <title>Laravel CRUD Project</title>
 
     <!-- bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -97,11 +97,10 @@
 
         <button type="button" class="btn btn-outline-dark mt-5 mb-2" data-bs-toggle="modal"
             data-bs-target="#add_new_user_modal">Add New User</button>
-
         <table class="table table-hover text-center">
             <thead class="table-dark">
                 <tr>
-                    <th scope="col">Serial</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
                     <th scope="col">Age</th>
@@ -112,15 +111,22 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($emp as $i)
+                @foreach ($emps as $emp)
                     <tr>
-                        <td>{{$i->id}}</td>
-                        <td>{{$i->name}}</td>
-                        <td>{{$i->email}}</td>
-                        <td>{{$i->age}}</td>
-                        <td>{{$i->gender}}</td>
-                        <td>{{$i->dob}}</td>
-                        <td>{{$i->about_user}}</td>
+                        <td>{{ $emp->id }}</td>
+                        <td>{{ $emp->name }}</td>
+                        <td>{{ $emp->email }}</td>
+                        <td>{{ $emp->age }}</td>
+                        <td>{{ $emp->gender }}</td>
+                        <td>{{ $emp->dob }}</td>
+                        <td>{{ $emp->about_user }}</td>
+                        <td>
+                            {{-- This is update icon --}}
+                            <a href="{{url('updatePage')}}/{{$emp->id}}" class="link-dark"><i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a>
+                            
+                            {{-- This is delete icon --}}
+                            <a href="{{url('delete')}}/{{$emp->id}}" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
