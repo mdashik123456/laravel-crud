@@ -36,8 +36,8 @@
 
                 <div class="modal-body">
 
-                    <form action="{{ url('/') }}" method="post" enctype="multipart/form-data">
-                        @csrf
+                    <form action="<?php echo e(url('/')); ?>" method="post" enctype="multipart/form-data">
+                        <?php echo csrf_field(); ?>
                         <div class="mb-3">
                             <label class="form-label">Name</label>
                             <input type="text" class="form-control" id="name" placeholder="Enter Full Name"
@@ -112,17 +112,17 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($emp as $i)
+                <?php $__currentLoopData = $emp; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $i): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
-                        <td>{{$i->id}}</td>
-                        <td>{{$i->name}}</td>
-                        <td>{{$i->email}}</td>
-                        <td>{{$i->age}}</td>
-                        <td>{{$i->gender}}</td>
-                        <td>{{$i->dob}}</td>
-                        <td>{{$i->about_user}}</td>
+                        <td><?php echo e($i->id); ?></td>
+                        <td><?php echo e($i->name); ?></td>
+                        <td><?php echo e($i->email); ?></td>
+                        <td><?php echo e($i->age); ?></td>
+                        <td><?php echo e($i->gender); ?></td>
+                        <td><?php echo e($i->dob); ?></td>
+                        <td><?php echo e($i->about_user); ?></td>
                     </tr>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>
         </table>
     </div>
@@ -134,3 +134,4 @@
 </body>
 
 </html>
+<?php /**PATH F:\example-app\resources\views/index.blade.php ENDPATH**/ ?>
